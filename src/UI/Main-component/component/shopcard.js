@@ -12,7 +12,7 @@ const ShopCard = ({
   const dateOpening = new Date(opening.split('-').join(' '));
   const dateClosing = new Date(closing.split('-').join(' '));
   return (
-    <div className="card mb-1 px-12 text-white h-20 w-full bg-slate-800 flex items-center justify-between flex-wrap">
+    <div className="card mb-1 px-10 text-white h-20 w-full bg-slate-800 flex items-center justify-between gap-x-3 gap-y-1 flex-wrap">
       <div>
         <p>{name}</p>
       </div>

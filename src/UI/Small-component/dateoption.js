@@ -12,7 +12,7 @@ const DateOption = ({ ForO, ForT, placeholder, openingDate, closingDate }) => {
   }, [isEntering, openingDate, mini]);
 
   return (
-    <div className="flex">
+    <div className="flex gap-y-5 flex-wrap">
       <div>
         <label htmlFor={ForO}>Opening: </label>
         <input

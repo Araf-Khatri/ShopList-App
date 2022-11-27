@@ -8,6 +8,7 @@ import { FIREBASE_URL } from './env';
 
 const App = () => {
   // const state = useSelector(state => state.filterLists.bool);
+  console.log(window.innerHeight);
   const shop = useSelector((state) => state.shopLists.bool);
   const dispatch = useDispatch();
   useEffect(() => {

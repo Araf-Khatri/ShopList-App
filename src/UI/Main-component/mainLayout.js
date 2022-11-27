@@ -26,6 +26,8 @@ const MainLayout = (props) => {
 
   let mainData = data2.map((obj) => obj.name);
   mainData = mainData.filter((data, index) => mainData.indexOf(data) === index);
+
+
   return (
     <div className=" w-full">
       <Filter name={mainData} />

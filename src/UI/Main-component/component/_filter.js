@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { IoIosFunnel } from 'react-icons/io';
-import { FaSearch } from 'react-icons/fa';
 import filterSlice, { filterActions } from '../../../store/filter-slice';
 import SelectOption from '../../Small-component/select-option';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +7,6 @@ const Filter = ({ name }) => {
   const mainState = useSelector((state) => state.shopLists.array);
   const mainFilter = useSelector((state) => state.filterLists);
   const dispatch = useDispatch();
-  const [html, setHTML] = useState(null);
   const filter = [].fill('', 0, 3);
 
   const filterHandler = (e) => {
@@ -32,20 +29,41 @@ const Filter = ({ name }) => {
     );
   };
 
-  const addFilterHandler = () => {
-    setHTML(
-      !html ? (
-        <div className="h-44 mt-1 mx-3">
-          <div className="flex gap-5 justify-around border">
+
+  return (
+    <div className={'flex flex-col'}>
+      <div
+        className=" h-10 m-2 bg-slate-200 flex items-center"
+      >
+        <div className="w-11/12 text-gray-500 flex place-content-around ">
+          <div>
+            <p>Shop name</p>
+          </div>
+          <div>
+            <p>Category</p>
+          </div>
+          <div>
+            <p>Location</p>
+          </div>
+        </div>
+        <div
+          className="h-8 w-8 flex items-center justify-center bg-slate-400 rounded-full"
+
+        >
+          {<IoIosFunnel />}
+        </div>
+      </div>
+      <div className=" mt-1 mb-5 mx-3 ">
+          <div className="flex  justify-around border">
             <SelectOption
               For="name"
-              extraClass="ml-5 w-44 appearance border-r-o"
+              extraClass="ml-5 appearance border-r-o"
               arrayOfOption={['', ...name]}
               onchange={filterHandler}
             />
             <SelectOption
               For="category"
-              extraClass="w-44 appearance border-r-o"
+              extraClass=" appearance border-r-o"
               arrayOfOption={[
                 '',
                 'Grocery',
@@ -58,7 +76,7 @@ const Filter = ({ name }) => {
             />
             <SelectOption
               For="location"
-              extraClass="w-44 appearance"
+              extraClass=" appearance"
               arrayOfOption={[
                 '',
                 'Thane',
@@ -73,36 +91,6 @@ const Filter = ({ name }) => {
             />
           </div>
         </div>
-      ) : null
-    );
-  };
-
-  return (
-    <div className={'flex flex-col'}>
-      <div
-        className=" h-10 m-2 bg-slate-200 flex items-center"
-        onClick={addFilterHandler}
-      >
-        <div className="w-11/12 text-gray-500 flex place-content-around ">
-          {/* {html} */}
-          <div>
-            <p>Shop name</p>
-          </div>
-          <div>
-            <p>Category</p>
-          </div>
-          <div>
-            <p>Location</p>
-          </div>
-        </div>
-        <div
-          className="h-8 w-8 flex items-center justify-center bg-slate-400 rounded-full"
-          onClick={addFilterHandler}
-        >
-          {!html ? <IoIosFunnel /> : <FaSearch />}
-        </div>
-      </div>
-      {html}
     </div>
   );
 };

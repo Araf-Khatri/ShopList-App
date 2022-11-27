@@ -46,6 +46,10 @@ button:disabled {
   
 }
 
+select {
+  max-width: 11rem;
+  min-width: 0.4rem;
+}
 /* :root {
   --ionicon-stroke-width: 32px;
   --ion-color-primary: #1f2937;

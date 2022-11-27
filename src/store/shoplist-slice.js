@@ -25,7 +25,7 @@ const shopSlice = createSlice({
       } else {
         state = {
           ...state,
-          array: payload,
+          array: payload.array,
           bool: payload.bool,
         };
       }

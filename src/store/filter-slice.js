@@ -10,6 +10,7 @@ const filterSlice = createSlice({
 
   reducers: {
     deleteData(state, { payload }) {
+
       state.array = state.array.filter((data) => data.id !== payload.id);
       state = {
         ...state,
@@ -18,11 +19,12 @@ const filterSlice = createSlice({
     },
 
     addState(state, { payload }) {
+      
       if (state.array.length !== 0) {
-        console.log(payload);
+        if (!payload.data) return
         state.array.push(payload.data);
         state.bool = payload.bool;
-
+        
         return;
       }
       return {
@@ -33,6 +35,7 @@ const filterSlice = createSlice({
     },
 
     addFilter(state, { payload }) {
+
       // state.array = payload.stateToCopy;
       const arr = payload.stateToCopy.filter((data) => {
         if (payload.toUpdate[0] && data.name !== payload.toUpdate[0])
