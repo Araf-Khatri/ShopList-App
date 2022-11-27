@@ -4,12 +4,6 @@ const DateOption = ({ ForO, ForT, placeholder, openingDate, closingDate }) => {
   const [mini, setMini] = useState('');
   const d = new Date();
   const currentDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  const [isEntering, setIsEntering] = useState(false);
-  useEffect(() => {
-    if (!isEntering) {
-      setMini(openingDate.current.value);
-    }
-  }, [isEntering, openingDate, mini]);
 
   return (
     <div className="flex gap-y-5 flex-wrap">
@@ -20,7 +14,9 @@ const DateOption = ({ ForO, ForT, placeholder, openingDate, closingDate }) => {
           id={ForO}
           type="date"
           ref={openingDate}
-          onFocus={() => setIsEntering(true)}
+          onChange={() => {
+            setMini(openingDate.current.value)
+          }}
           min={currentDate}
           defaultValue={currentDate}
         />
@@ -35,7 +31,6 @@ const DateOption = ({ ForO, ForT, placeholder, openingDate, closingDate }) => {
           type="date"
           min={mini || currentDate}
           ref={closingDate}
-          onFocus={() => setIsEntering(false)}
           required
         />
       </div>
