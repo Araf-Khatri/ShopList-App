@@ -1,0 +1,1 @@
+export const FIREBASE_URL= "https://shoplistapp-ba943-default-rtdb.asia-southeast1.firebasedatabase.app/shoplists"
