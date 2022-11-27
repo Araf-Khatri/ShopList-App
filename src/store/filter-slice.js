@@ -3,12 +3,17 @@ import { createSlice, current } from '@reduxjs/toolkit';
 const state = {
   bool: false,
   array: [],
+  filter: []
 };
 const filterSlice = createSlice({
   name: 'FilterList',
   initialState: state,
 
   reducers: {
+    filtering(state, { payload }) {
+      state.filter[payload.idx] = payload.toAdd;
+    },
+
     deleteData(state, { payload }) {
 
       state.array = state.array.filter((data) => data.id !== payload.id);
@@ -35,7 +40,6 @@ const filterSlice = createSlice({
     },
 
     addFilter(state, { payload }) {
-
       // state.array = payload.stateToCopy;
       const arr = payload.stateToCopy.filter((data) => {
         if (payload.toUpdate[0] && data.name !== payload.toUpdate[0])
@@ -49,6 +53,7 @@ const filterSlice = createSlice({
       });
 
       return {
+        ...state,
         array: arr,
         bool: payload.bool,
       };
