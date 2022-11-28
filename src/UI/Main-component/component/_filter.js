@@ -58,14 +58,14 @@ const Filter = ({ name }) => {
           <SelectOption
             For="name"
             extraClass="ml-5 appearance border-r-o"
-            arrayOfOption={["", ...name]}
+            arrayOfOption={["All", ...name]}
             onchange={filterHandler}
           />
           <SelectOption
             For="category"
             extraClass=" appearance border-r-o"
             arrayOfOption={[
-              "",
+              "All",
               "Grocery",
               "Butcher",
               "Baker",
@@ -78,7 +78,7 @@ const Filter = ({ name }) => {
             For="location"
             extraClass=" appearance"
             arrayOfOption={[
-              "",
+              "All",
               "Thane",
               "Pune",
               "Mumbai Suburban",

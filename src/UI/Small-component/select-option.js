@@ -16,7 +16,7 @@ const SelectOption = ({
         onChange={onchange}
       >
         {arrayOfOption.map((op, i) => (
-          <option key={i} value={op}>
+          <option key={i} value={op === 'All' ? '' : op}>
             {op}
           </option>
         ))}
