@@ -1,6 +1,7 @@
 import { createSlice, current } from '@reduxjs/toolkit';
 import { data } from 'autoprefixer';
 
+// this is state
 const state = {
   bool: false,
   array: [],
@@ -10,7 +11,9 @@ const shopSlice = createSlice({
   name: 'shopList',
   initialState: state,
 
+  // reducers
   reducers: {
+    // actions
     refreshState(state, { payload }) {
       state.array = state.array.filter((data) => data.id !== payload);
     },
